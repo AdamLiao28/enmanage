@@ -1,0 +1,23 @@
+<!--view the item-->
+<div class="container">
+<div class="row">
+<div class="card col-12 col-md-6 col-lg-6" >
+  <h3 class="card-title" ><%= event.name %></h3>
+  <img class="card-img-left" src="<%= event.iurl %>" width="480px" height="360px">
+</div>
+ <div class="card-body col-12 col-md-6 col-lg-6">
+  <table border="1">
+    <tr><td><%= event.fdescription %></td></tr>
+    </table>
+   <table border="1" class="table table-bordered" width="1px" >
+    <tr><th scope="row" width="1px">Organizer:</th><td ><%= event.organizer %>  </td></tr>
+    <tr><th scope="row">Venue:</th><td ><%= event.venue%></td></tr>
+    <tr><th scope="row">Quote:</th><td><%= event.quote%></td></tr>
+  </table>
+  </div>
+</div>
+</div>
+
+
+
+

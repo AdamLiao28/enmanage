@@ -1,0 +1,88 @@
+<!--update.ejs-->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+
+<div class="row">
+  <div class="card col-12 col-md-6 col-lg-6">
+     <form action="/event/update/<%= event.id%>"  method="post">
+    <div class="group">
+    <div class="form-group">
+      <label>Event Name:</label>
+      <input type="text" class="form-control" name="Event[name]" value="<%=event.name%>" required>
+    </div>
+    <div class="form-group">
+      <label>Short Description</label>
+      <textarea class="form-control" name="Event[sdescription]"  rows="5"><%=event.sdescription %></textarea>
+    </div>
+    <div class="form-group">
+      <label>Full Description</label>
+      <textarea class="form-control" name="Event[fdescription]"  rows="8"><%=event.fdescription%></textarea>
+    </div>
+  </div>
+</form>
+    <form action="/event/delete/<%= event.id%>"  method="post">
+      <button type="submit" class="btn btn-primary">Delete</button>
+    </form>
+  </div>
+  <div class="card col-12 col-md-6 col-lg-6">
+    <div class="form-group " align="centre">
+      <label>Image URL</label>
+      <input type="url" class="form-control" name="Event[iurl]" value="<%=event.iurl%>">
+    </div>
+    <div class="form-group">
+      <span>Organizer</span>
+      <select name="organizer" required ><%=event.organizer%>
+        <option value="hkbu">Hong Kong Baptist University</option>
+        <option value="cuhk">the Chinese University of Hong Kong</option>
+        <option value="hku"> Hong Kong University</option>
+        <option value="hkust"> Hong Kong University of S&T</option>
+      </select>
+
+    </div>
+    <div class="form-group">
+      <label>Event Date</label>
+      <input type="text" name="Event[date]" id="datepicker" value="<%=event.date%>" >
+    </div>
+
+    <div class="form-group ">
+      <label>Time:</label>
+      <input type="text" name="Event[time]" value="<%=event.time%>" >
+      <div class="form-group">
+        <label>Quote:</label>
+        <input type="number" name="Event[quote]" value="<%=event.quote%>" >
+    </div>
+    <div class="form-group">
+      <label>Venue:</label>
+      <select name="Event[venue}"  required><%=event.venue%>
+        <option value="DB201">DB201</option>
+        <option value="JS201">JS201</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <input type="checkbox" class="form-check-input"  value="<%= event.check%>">
+      <label class="form-check-label" for="highlightCheck">Highlighter Event</label>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+
+
+
+</div>
+</div>
+
+
+
+
+<!--atepicker-->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+</script>

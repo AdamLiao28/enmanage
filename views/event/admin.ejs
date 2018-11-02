@@ -1,0 +1,15 @@
+<!--admin.ejs-->
+
+<table style="font-size:20px" border="1" width="100%">
+<% event.forEach( function(model) { %>
+<tr><th ><%= model.id%></th><td align="center"><a href="/event/update/<%= model.id %>"><%= model.name%></a></td></tr>
+  <% });%>
+</table>
+
+
+
+
+
+<script>
+
+</script>

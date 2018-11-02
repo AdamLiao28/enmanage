@@ -1,0 +1,43 @@
+<!--index.ejs-->
+<!--add the function of paging-->
+<% const current = parseInt(req.query.page) || 1; %>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="/event/index/?page=<%= Math.max(current-1, 1) %>">前一页</a>
+    </li>
+
+    <% for (i = 1; i <= count; i++) { %>
+      <li class="page-item">
+        <a class="page-link" href="/event/index/?page=<%= i %>"><%= i %></a>
+      </li>
+    <% } %>
+
+    <li class="page-item">
+      <a class="page-link" href="/event/index/?page=<%= Math.min(current+1, count) %>">下一页</a>
+    </li>
+  </ul>
+</nav>
+
+
+
+
+<div class="row">
+  <% event.forEach( function(model) { %>
+
+<div class="card col-12 col-md-6 col-lg-6" style="width: 18rem;">
+  <h5 class="card-title"><a href="/event/view/<%= model.id %>"><%= model.name %></a></h5>
+  <div class="row">
+    <div class="col-4">
+  <img class="card-img-top" src="<%= model.iurl %>" width="360px" height="220px">
+    </div>
+  <div class=" col-8">
+    <h3 row="3"><%= model.sdescription %></h3>
+
+
+  </div>
+  </div>
+</div>
+    <% }); %>
+</div>,
+
